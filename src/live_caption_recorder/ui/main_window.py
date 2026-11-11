@@ -181,6 +181,7 @@ class MainWindow(QWidget):
         self.text.setOpenLinks(False)
         self.text.setTextInteractionFlags(Qt.TextSelectableByMouse | Qt.TextSelectableByKeyboard)
         self.text.viewport().setAutoFillBackground(False)
+        self.text.setCursorWidth(0)   # read-only view: no blinking text caret
         self.text.setStyleSheet(f"""
             QTextBrowser {{ background: transparent; border: none; color: {theme.TEXT};
                             padding: 10px 16px 6px 16px; selection-background-color: rgba(124,210,255,0.35); }}
