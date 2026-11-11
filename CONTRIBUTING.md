@@ -32,6 +32,9 @@ python -m pytest          # tests
 starts recording and saves a picture of the window after 8 s (useful for README screenshots and
 visual checks).
 
+`python scripts/make_screenshots.py` regenerates the README images in `docs/` from a scripted demo
+transcript (Live Captions and your settings are not touched).
+
 ## Releasing
 
 1. Bump `__version__` in `src/live_caption_recorder/__init__.py` and update `CHANGELOG.md`.

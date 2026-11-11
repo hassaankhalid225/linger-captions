@@ -10,7 +10,15 @@ frosted-glass caption bar.
 > Works with any audio playing on your PC: meetings (Teams, Meet, Zoom), lectures, YouTube,
 > podcasts. Speech recognition runs **on-device** in Windows — nothing is uploaded anywhere.
 
-<!-- Add a screenshot: docs/screenshot.png -->
+<p align="center">
+  <img src="docs/screenshot-compact.png" alt="Compact caption bar while recording" width="820">
+</p>
+
+<p align="center">
+  <img src="docs/screenshot-expanded.png" alt="Expanded transcript view with timestamps" width="820">
+  <br><sub>Compact caption bar (top) and the expanded transcript with timestamps (bottom). White = saved
+  sentences, blue = the sentence still being spoken.</sub>
+</p>
 
 ## Features
 
