@@ -38,6 +38,26 @@ def log_dir() -> str:
     return path
 
 
+LEGACY_APP_ID = "LiveCaptionRecorder"          # name used up to v1.0.0
+LEGACY_TRANSCRIPTS = "Live Caption Recorder"
+
+
+def _migrate_legacy(qs: QSettings) -> None:
+    """First run after the rename to Linger: carry over the old settings and transcripts folder."""
+    if qs.allKeys():
+        return
+    old = QSettings(LEGACY_APP_ID, "app")
+    keys = old.allKeys()
+    if not keys:
+        return
+    for key in keys:
+        qs.setValue(key, old.value(key))
+    old_dir = os.path.normpath(os.path.join(documents_dir(), LEGACY_TRANSCRIPTS))
+    if not qs.value("transcripts_dir") and os.path.isdir(old_dir):
+        qs.setValue("transcripts_dir", old_dir)   # keep writing next to the existing transcripts
+    qs.sync()
+
+
 @dataclass
 class Settings:
     font_px: int = 24
@@ -58,6 +78,7 @@ class Settings:
     @classmethod
     def load(cls) -> Settings:
         qs = QSettings(APP_ID, "app")
+        _migrate_legacy(qs)
         s = cls()
         for f in fields(cls):
             raw = qs.value(f.name)

@@ -1,4 +1,4 @@
-from live_caption_recorder.core.text import norm, similar, split_sentences
+from linger.core.text import norm, similar, split_sentences
 
 
 def test_split_keeps_unfinished_tail():

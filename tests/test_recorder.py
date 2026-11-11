@@ -2,7 +2,7 @@ import contextlib
 import os
 import time
 
-from live_caption_recorder.core.recorder import Recorder, Status
+from linger.core.recorder import Recorder, Status
 
 
 class FakeSource:

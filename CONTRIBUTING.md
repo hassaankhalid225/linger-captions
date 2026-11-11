@@ -1,17 +1,17 @@
 # Contributing
 
-Thanks for helping improve Live Caption Recorder!
+Thanks for helping improve Linger!
 
 ## Setup
 
 ```powershell
-git clone https://github.com/hassaankhalid225/live-caption-recorder.git
-cd live-caption-recorder
+git clone https://github.com/hassaankhalid225/linger-captions.git
+cd linger-captions
 python -m venv .venv; .venv\Scripts\activate
 python -m pip install -e ".[dev]"
 ```
 
-Run the app with `python -m live_caption_recorder --debug` (logs also go to the console).
+Run the app with `python -m linger --debug` (logs also go to the console).
 
 ## Before opening a pull request
 
@@ -28,14 +28,17 @@ python -m pytest          # tests
 
 ## Handy dev flags
 
-`python -m live_caption_recorder --start --screenshot shot.png --screenshot-delay 8000`
+`python -m linger --start --screenshot shot.png --screenshot-delay 8000`
 starts recording and saves a picture of the window after 8 s (useful for README screenshots and
 visual checks).
+
+`python scripts/make_icon.py` re-renders `assets/icon.ico` and `docs/logo.png` from
+`ui/theme.paint_logo` (keep `docs/logo.svg` in sync when you change the mark).
 
 `python scripts/make_screenshots.py` regenerates the README images in `docs/` from a scripted demo
 transcript (Live Captions and your settings are not touched).
 
 ## Releasing
 
-1. Bump `__version__` in `src/live_caption_recorder/__init__.py` and update `CHANGELOG.md`.
+1. Bump `__version__` in `src/linger/__init__.py` and update `CHANGELOG.md`.
 2. `git tag v1.2.3 && git push --tags` — GitHub Actions builds the zip and drafts the release.

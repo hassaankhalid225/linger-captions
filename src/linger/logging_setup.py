@@ -1,4 +1,4 @@
-"""Rotating file log in %LOCALAPPDATA%\\LiveCaptionRecorder\\logs + crash hooks."""
+"""Rotating file log in %LOCALAPPDATA%\\Linger\\logs + crash hooks."""
 
 from __future__ import annotations
 

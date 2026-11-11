@@ -2,7 +2,7 @@ import itertools
 
 import pytest
 
-from live_caption_recorder.core.transcript import Transcript
+from linger.core.transcript import Transcript
 
 
 @pytest.fixture

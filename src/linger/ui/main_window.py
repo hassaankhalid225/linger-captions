@@ -116,7 +116,7 @@ class MainWindow(QWidget):
         h.setContentsMargins(10, 0, 2, 0)
         h.setSpacing(8)
         h.addWidget(Logo())
-        title = QLabel("Live Captions")
+        title = QLabel(APP_NAME)
         title.setFont(theme.display_font(14, QFont.DemiBold))
         title.setStyleSheet("color: rgba(255,255,255,0.95); background: transparent;")
         h.addWidget(title)

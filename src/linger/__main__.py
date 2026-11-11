@@ -1,4 +1,4 @@
-from live_caption_recorder.app import main
+from linger.app import main
 
 if __name__ == "__main__":
     raise SystemExit(main())

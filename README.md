@@ -1,9 +1,23 @@
-# Live Caption Recorder
+<p align="center">
+  <img src="docs/logo.svg" alt="Linger logo" width="112">
+</p>
 
-**Keep every line from Windows 11 Live Captions — until *you* stop.**
+<h1 align="center">Linger</h1>
+
+<p align="center">
+  <b>Live captions that stay.</b><br>
+  Keep every line from Windows 11 Live Captions — until <i>you</i> stop.
+</p>
+
+<p align="center">
+  <a href="https://github.com/hassaankhalid225/linger-captions/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/hassaankhalid225/linger-captions?color=6f8bff"></a>
+  <a href="https://github.com/hassaankhalid225/linger-captions/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/hassaankhalid225/linger-captions/actions/workflows/ci.yml/badge.svg"></a>
+  <img alt="Windows 11" src="https://img.shields.io/badge/Windows-11-46c6ff">
+  <a href="LICENSE"><img alt="MIT license" src="https://img.shields.io/badge/license-MIT-9b6bff"></a>
+</p>
 
 Windows Live Captions shows only the last couple of lines and throws everything else away.
-Live Caption Recorder sits on top of it, collects every sentence into a clean, de-duplicated
+Linger sits on top of it, collects every sentence into a clean, de-duplicated
 transcript and lets you copy, save or export it — while staying out of your way as a
 frosted-glass caption bar.
 
@@ -26,7 +40,7 @@ frosted-glass caption bar.
 - **Smart de-duplication** — handles Live Captions' rolling window, re-punctuation and revisions.
 - **Keeps running when minimized** — Live Captions itself is parked off-screen so it never pauses.
 - **Copy, save & export** — plain text, text with timestamps, Markdown or `.srt` subtitles.
-- **Auto-save** — every session is written to `Documents\Live Caption Recorder` as you go.
+- **Auto-save** — every session is written to `Documents\Linger` as you go.
 - **Frosted-glass UI** — compact caption bar or expanded transcript view, adjustable text size,
   always-on-top, draggable and resizable.
 - **Private mode** *(optional)* — hides the window from screen sharing and recordings, handy when
@@ -42,16 +56,16 @@ frosted-glass caption bar.
 ## Install & run
 
 ### Option A — standalone app
-Download `LiveCaptionRecorder-<version>-win64.zip` from the
-[Releases](https://github.com/hassaankhalid225/live-caption-recorder/releases) page, unzip, run
-`LiveCaptionRecorder.exe`.
+Download `Linger-<version>-win64.zip` from the
+[Releases](https://github.com/hassaankhalid225/linger-captions/releases) page, unzip, run
+`Linger.exe`.
 
 ### Option B — from source
 ```powershell
-git clone https://github.com/hassaankhalid225/live-caption-recorder.git
-cd live-caption-recorder
+git clone https://github.com/hassaankhalid225/linger-captions.git
+cd linger-captions
 python -m pip install -e .
-live-caption-recorder            # or: pythonw run.pyw   /   double-click "Start Live Caption Recorder.bat"
+linger            # or: pythonw run.pyw   /   double-click "Start Linger.bat"
 ```
 
 Command-line options: `--start` (begin recording right away), `--debug` (verbose log), `--version`.
@@ -83,7 +97,7 @@ own settings.
    removes its taskbar button instead — and puts it back when you quit.
 
 ```
-src/live_caption_recorder/
+src/linger/
 ├── core/          # platform-independent: text utils, Transcript, Recorder loop (unit-tested)
 ├── win/           # Win32 bindings + Live Captions controller (UI Automation)
 ├── ui/            # PySide6 glass window, widgets, tray, theme
@@ -94,9 +108,9 @@ src/live_caption_recorder/
 ## Privacy
 
 - No network access. Speech recognition is done by Windows on your device.
-- Transcripts are saved only where you choose (default `Documents\Live Caption Recorder`); turn
+- Transcripts are saved only where you choose (default `Documents\Linger`); turn
   auto-save off in the ⋯ menu.
-- Logs (no transcript text) live in `%LOCALAPPDATA%\LiveCaptionRecorder\logs`.
+- Logs (no transcript text) live in `%LOCALAPPDATA%\Linger\logs`.
 - Please respect the people you record: follow your local laws and your organisation's policies,
   and ask for consent where required.
 
@@ -115,7 +129,7 @@ src/live_caption_recorder/
 python -m pip install -e ".[dev]"
 ruff check src tests
 python -m pytest
-powershell -ExecutionPolicy Bypass -File scripts\build.ps1   # builds dist\LiveCaptionRecorder
+powershell -ExecutionPolicy Bypass -File scripts\build.ps1   # builds dist\Linger
 ```
 
 See [CONTRIBUTING.md](CONTRIBUTING.md). Releases are built automatically by GitHub Actions when a

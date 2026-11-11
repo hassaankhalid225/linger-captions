@@ -96,10 +96,10 @@ def main() -> int:
     QGuiApplication.setHighDpiScaleFactorRoundingPolicy(Qt.HighDpiScaleFactorRoundingPolicy.PassThrough)
     app = QApplication(sys.argv[:1])
 
-    from live_caption_recorder.config import Settings
-    from live_caption_recorder.core.recorder import Recorder
-    from live_caption_recorder.ui import theme
-    from live_caption_recorder.ui.main_window import MainWindow
+    from linger.config import Settings
+    from linger.core.recorder import Recorder
+    from linger.ui import theme
+    from linger.ui.main_window import MainWindow
 
     Settings.save = lambda self: None   # never touch the user's real settings
     app.setStyleSheet(theme.APP_STYLESHEET)

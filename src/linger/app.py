@@ -13,7 +13,7 @@ log = logging.getLogger(__name__)
 
 
 def parse_args(argv: list[str]) -> argparse.Namespace:
-    p = argparse.ArgumentParser(prog="live-caption-recorder", description=APP_NAME)
+    p = argparse.ArgumentParser(prog="linger", description=APP_NAME)
     p.add_argument("--start", action="store_true", help="start recording immediately")
     p.add_argument("--debug", action="store_true", help="verbose logging")
     p.add_argument("--version", action="version", version=f"%(prog)s {__version__}")

@@ -4,9 +4,23 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [Semantic Versioning](https://semver.org/).
 
+## [1.1.0] — 2026-11-12
+
+### Changed
+- **New name: Linger** ("live captions that stay") with a new logo and app icon.
+  The repository moved to `hassaankhalid225/linger-captions` (old links redirect), the app is
+  now `Linger.exe`, the command is `linger` and the Python package is `linger`.
+- Settings, logs and auto-saved transcripts now live under the Linger name. Settings from
+  Live Caption Recorder 1.0 are imported automatically on first start, and if you used the default
+  transcripts folder (`Documents\Live Caption Recorder`) Linger keeps saving there.
+
+### Added
+- Screenshots in the README and `scripts/make_screenshots.py` to regenerate them.
+
 ## [1.0.0] — 2026-11-11
 
 ### Added
+- First release as *Live Caption Recorder*.
 - Persistent, de-duplicated transcript built from Windows Live Captions.
 - Recording continues while minimized (Live Captions is parked off-screen, restored on exit).
 - Copy all, save/export as text, text with timestamps, Markdown and SRT.

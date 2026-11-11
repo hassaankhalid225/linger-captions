@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from functools import lru_cache
 
-from PySide6.QtCore import QRectF, Qt
-from PySide6.QtGui import QColor, QFont, QFontDatabase, QIcon, QLinearGradient, QPainter, QPixmap
+from PySide6.QtCore import QPointF, QRectF, Qt
+from PySide6.QtGui import QColor, QFont, QFontDatabase, QIcon, QLinearGradient, QPainter, QPen, QPixmap
 
 ACCENT = "#7cd2ff"
 ACCENT_2 = "#a99bff"
@@ -55,19 +55,43 @@ def display_font(px: int, weight: QFont.Weight = QFont.Medium) -> QFont:
     return f
 
 
+LOGO_TOP, LOGO_MID, LOGO_BOTTOM = "#46c6ff", "#6f8bff", "#9b6bff"
+
+
 def paint_logo(p: QPainter, rect: QRectF) -> None:
-    g = QLinearGradient(rect.topLeft(), rect.bottomRight())
-    g.setColorAt(0, QColor(ACCENT))
-    g.setColorAt(1, QColor(ACCENT_2))
+    """The Linger mark: an "L" whose foot trails off into fading dots — words that stay.
+
+    Drawn on a 100x100 grid and scaled to ``rect``; docs/logo.svg is the same drawing.
+    """
+    p.save()
+    p.translate(rect.topLeft())
+    s = min(rect.width(), rect.height()) / 100.0
+    p.scale(s, s)
+    p.setRenderHint(QPainter.Antialiasing)
+
+    bg = QLinearGradient(0, 0, 100, 100)
+    bg.setColorAt(0, QColor(LOGO_TOP))
+    bg.setColorAt(0.5, QColor(LOGO_MID))
+    bg.setColorAt(1, QColor(LOGO_BOTTOM))
     p.setPen(Qt.NoPen)
-    p.setBrush(g)
-    p.drawRoundedRect(rect, rect.width() * 0.3, rect.height() * 0.3)
-    f = QFont(UI_FONT)
-    f.setPixelSize(max(6, int(rect.height() * 0.42)))
-    f.setBold(True)
-    p.setFont(f)
-    p.setPen(QColor("#0b0b12"))
-    p.drawText(rect, Qt.AlignCenter, "CC")
+    p.setBrush(bg)
+    p.drawRoundedRect(QRectF(0, 0, 100, 100), 26, 26)
+
+    sheen = QLinearGradient(0, 0, 0, 55)
+    sheen.setColorAt(0, QColor(255, 255, 255, 70))
+    sheen.setColorAt(1, QColor(255, 255, 255, 0))
+    p.setBrush(sheen)
+    p.drawRoundedRect(QRectF(0, 0, 100, 100), 26, 26)
+
+    pen = QPen(QColor("white"), 12, Qt.SolidLine, Qt.RoundCap, Qt.RoundJoin)
+    p.setPen(pen)
+    p.setBrush(Qt.NoBrush)
+    p.drawPolyline([QPointF(26, 25), QPointF(26, 73), QPointF(50, 73)])
+    p.setPen(Qt.NoPen)
+    for x, alpha in ((65, 200), (79, 115)):
+        p.setBrush(QColor(255, 255, 255, alpha))
+        p.drawEllipse(QPointF(x, 73), 6, 6)
+    p.restore()
 
 
 def app_icon() -> QIcon:

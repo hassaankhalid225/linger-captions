@@ -3,7 +3,7 @@ requires = ["hatchling>=1.21"]
 build-backend = "hatchling.build"
 
 [project]
-name = "live-caption-recorder"
+name = "linger-captions"
 dynamic = ["version"]
 description = "Keep every line from Windows 11 Live Captions until you stop — copy, save and export full transcripts."
 readme = "README.md"
@@ -32,17 +32,17 @@ dependencies = [
 dev = ["pytest>=8", "ruff>=0.5", "pyinstaller>=6.3", "Pillow>=10"]
 
 [project.gui-scripts]
-live-caption-recorder = "live_caption_recorder.app:main"
+linger = "linger.app:main"
 
 [project.urls]
-Homepage = "https://github.com/hassaankhalid225/live-caption-recorder"
-Issues = "https://github.com/hassaankhalid225/live-caption-recorder/issues"
+Homepage = "https://github.com/hassaankhalid225/linger-captions"
+Issues = "https://github.com/hassaankhalid225/linger-captions/issues"
 
 [tool.hatch.version]
-path = "src/live_caption_recorder/__init__.py"
+path = "src/linger/__init__.py"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/live_caption_recorder"]
+packages = ["src/linger"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

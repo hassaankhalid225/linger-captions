@@ -7,7 +7,7 @@ import sys
 from ctypes import wintypes
 
 if sys.platform != "win32":  # pragma: no cover
-    raise ImportError("live_caption_recorder.win.win32 requires Windows")
+    raise ImportError("linger.win.win32 requires Windows")
 
 user32 = ctypes.WinDLL("user32", use_last_error=True)
 kernel32 = ctypes.WinDLL("kernel32", use_last_error=True)
